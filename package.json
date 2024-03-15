@@ -1,0 +1,26 @@
+{
+  "name": "@basschiphorst/github-backup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "docker-build": "docker build -t basschiphorst/github-backup .",
+    "docker-run": "docker run --env-file .env basschiphorst/github-backup",
+    "prettier": "prettier --list-different index.js",
+    "prettier-fix": "prettier --write index.js"
+  },
+  "author": "Bas Schiphorst",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/core": "^5.1.0",
+    "@octokit/plugin-paginate-rest": "^9.2.1",
+    "@octokit/plugin-rest-endpoint-methods": "^10.3.0",
+    "chalk": "^5.0.1",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
