@@ -28,7 +28,7 @@ The script operates with several configurable variables. The following variables
 
 - **GITHUB_TOKEN** (Required)
 
-  Your Personal [GitHub access token](https://github.com/settings/tokens).
+  Your Personal [GitHub access token](https://github.com/settings/tokens) with 'repo' permissions selected.
 
 - **MAX_BACKUPS** 
   
