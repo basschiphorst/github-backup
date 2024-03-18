@@ -32,7 +32,7 @@ The script operates with several configurable variables. The following variables
 
 - **MAX_BACKUPS** 
   
-  Defines the maximum number of unique backups to retain before replacing the oldest. (Default = 3)
+  The maximum number of unique backups to retain before replacing the oldest. (Default = 3)
 
 - **ORGANISATIONS**
   
@@ -49,6 +49,21 @@ The script operates with several configurable variables. The following variables
     | owner               | Repositories owned by the authenticated user.                                                       |
     | collaborator        | Repositories where the user is added as a collaborator.                                             |
     | organization_member | Repositories accessible to the user as a member of an organization. Includes all team repositories. |
+
+- **SCHEDULE**
+  
+  The cron schedule for executing the backup jobs, see [node-cron](https://github.com/node-cron/node-cron?tab=readme-ov-file#cron-syntax) for more information. To disable scheduled backups, leave this variable empty. (Default = '0 1 * * *'' -> Every day at 01:00)
+
+  ```
+   ┌───────────── second (optional)
+   │ ┌─────────── minute
+   │ │ ┌───────── hour
+   │ │ │ ┌─────── day of month
+   │ │ │ │ ┌───── month
+   │ │ │ │ │ ┌─── day of week
+   │ │ │ │ │ │
+   * * * * * *
+  ```
 
 ## Backup Location
 If ran successfully, all repositories accessible with the provided token will be cloned and archived in `/backups`. You can access these backups by mounting a local folder.
