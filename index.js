@@ -6,6 +6,7 @@ import * as dotenv from 'dotenv'
 import { Octokit } from '@octokit/core'
 import { paginateRest } from '@octokit/plugin-paginate-rest'
 import { restEndpointMethods } from '@octokit/plugin-rest-endpoint-methods'
+import { schedule } from 'node-cron'
 
 const { error, log } = console
 dotenv.config()
@@ -138,5 +139,13 @@ const repos = (
   })
 ).filter((repo) => repoOwners.includes(repo.owner.login))
 
+if (process.env.SCHEDULE) {
+  schedule(process.env.SCHEDULE, () => {
+    processRepositories(repos)
+  })
+
+  log(chalk.green(`🚀  Scheduled backup for ${process.env.SCHEDULE}`))
+}
+
+log(chalk.green(`⏩  Running backup once on start`))
 processRepositories(repos)
-process.exit()
