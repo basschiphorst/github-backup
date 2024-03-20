@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/github-backup:latest,${{ secrets.DOCKERHUB_USERNAME }}/github-backup:${{ github.ref_name }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/github-backup:${{ github.ref_name }},${{ secrets.DOCKERHUB_USERNAME }}/github-backup:latest
