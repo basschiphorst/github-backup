@@ -123,6 +123,8 @@ function processRepositories(repositories) {
   for (const repository of repositories) {
     zipRepository(repository)
   }
+
+  log(chalk.green(`🎉  Backup completed`))
 }
 
 const user = (await octokit.rest.users.getAuthenticated()).data.login
